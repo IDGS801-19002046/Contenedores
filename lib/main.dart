@@ -33,29 +33,22 @@ class ContainerGrid extends StatelessWidget {
           buildColumn(shuffleWidgets([
             InkWell(
               onTap: () {
-                ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Soy un cocodrilo roar")));
+                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                    content: Text("Es es estegosaurio de la suerte")));
               },
               child: Container(
                 width: 150,
                 height: 150,
                 decoration: BoxDecoration(
                   image: const DecorationImage(
-                    image: AssetImage("../assets/cocodrilo.png"),
+                    image: AssetImage("../assets/estegosaurio.png"),
                   ),
                   shape: BoxShape.circle,
-                  gradient: RadialGradient(
-                    center: Alignment.centerRight,
-                    radius: 0.8,
-                    colors: [Colors.blue.shade900, Colors.green.shade900],
+                  gradient: LinearGradient(
+                    colors: [Colors.blue, Colors.green],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
                   ),
-                  boxShadow: const [
-                    BoxShadow(
-                      color: Colors.yellow,
-                      blurRadius: 15,
-                      offset: Offset(5, -5),
-                    )
-                  ],
                 ),
                 alignment: Alignment.center,
               ),
@@ -73,26 +66,32 @@ class ContainerGrid extends StatelessWidget {
               alignment: Alignment.center,
             ),
             Container(
-              width: 70,
-              height: 70,
-              color: Colors.blue.shade900,
-              child: Icon(
-                Icons.dangerous,
-                color: Colors.red.shade900,
-                size: 30,
+              padding: EdgeInsets.all(20),
+              margin: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                gradient: SweepGradient(
+                  colors: [
+                    Colors.blue,
+                    Colors.red,
+                    Colors.yellow,
+                    Colors.green
+                  ],
+                ),
+                shape: BoxShape.rectangle,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                child: Icon(Icons.flash_on, color: Colors.white),
               ),
             ),
             Container(
-              width: 200,
-              height: 50,
-              color: Colors.pink.shade900,
-              child: const Text(
-                '¡Cordova es un buen estudiante!',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 12.0,
-                ),
+              padding: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.teal,
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Center(
+                child: Icon(Icons.home, color: Colors.red),
               ),
             ),
             createContainer(90, 70, Colors.green.shade900),
@@ -110,14 +109,18 @@ class ContainerGrid extends StatelessWidget {
                   image: const DecorationImage(
                     image: AssetImage("../assets/panda.png"),
                   ),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.yellow,
+                      blurRadius: 15,
+                      offset: Offset(5, -5),
+                    )
+                  ],
                   shape: BoxShape.rectangle,
                   gradient: RadialGradient(
                     center: Alignment.centerRight,
                     radius: 0.8,
-                    colors: [
-                      Colors.pink.shade700,
-                      Color.fromARGB(255, 23, 97, 33)
-                    ],
+                    colors: [Colors.pink, Colors.deepPurple],
                   ),
                 ),
                 alignment: Alignment.centerLeft,
@@ -136,31 +139,33 @@ class ContainerGrid extends StatelessWidget {
               alignment: Alignment.center,
             ),
             Container(
-              width: 60,
-              height: 30,
+              padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.elliptical(600, 400),
-                  bottomRight: Radius.elliptical(600, 400),
-                ),
-                color: Colors.purple.shade900,
-              ),
-              alignment: Alignment.center,
-            ),
-            Container(
-              width: 90,
-              height: 45,
-              decoration: BoxDecoration(
-                color: Colors.green.shade900,
-                boxShadow: const [
+                color: Colors.orange,
+                shape: BoxShape.circle,
+                boxShadow: [
                   BoxShadow(
-                    color: Colors.purple,
-                    blurRadius: 80,
-                    offset: Offset(5, -5),
-                  )
+                    color: Colors.black45,
+                    blurRadius: 10,
+                    offset: Offset(4, 4),
+                  ),
                 ],
               ),
-              alignment: Alignment.center,
+              child: Center(
+                child: Icon(Icons.favorite, color: Colors.white),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: Colors.yellow,
+                shape: BoxShape.rectangle,
+                border: Border.all(color: Colors.black, width: 2),
+              ),
+              child: Center(
+                child: Text('Ceci no estuvo aquí',
+                    style: TextStyle(color: Colors.black)),
+              ),
             ),
             createContainer(78, 45, Colors.pink.shade700),
           ])),
@@ -171,8 +176,8 @@ class ContainerGrid extends StatelessWidget {
                     content: Text("El espcio es un buen lugar para viajar")));
               },
               child: Container(
-                width: 70,
-                height: 70,
+                width: 150,
+                height: 150,
                 decoration: BoxDecoration(
                   image: const DecorationImage(
                     image: AssetImage("../assets/space.png"),
@@ -193,53 +198,56 @@ class ContainerGrid extends StatelessWidget {
             InkWell(
               onTap: () {
                 ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text("Cuidado muchachos")));
+                    const SnackBar(content: Text("Te dije que no")));
               },
               child: Container(
-                width: 70,
-                height: 70,
-                color: Colors.orange.shade900,
-                child: Icon(
-                  Icons.sign_language_sharp,
-                  color: Colors.orange.shade900,
-                  size: 20,
+                width: 100,
+                height: 100,
+                padding: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  gradient: RadialGradient(
+                    colors: [Colors.pink, Colors.deepPurple],
+                    center: Alignment.center,
+                    radius: 0.85,
+                  ),
+                  shape: BoxShape.circle,
                 ),
-                alignment: Alignment.topRight,
+                child: Center(
+                  child: Text('No le presiones',
+                      style: TextStyle(color: Colors.white)),
+                ),
               ),
             ),
             InkWell(
-              onTap: () {
+              onDoubleTap: () {
                 ScaffoldMessenger.of(context)
-                    .showSnackBar(const SnackBar(content: Text("Help ayuda")));
+                    .showSnackBar(const SnackBar(content: Text("Brilla")));
               },
               child: Container(
-                width: 70,
-                height: 70,
+                padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Colors.red.shade900,
+                  gradient: LinearGradient(
+                    colors: [Colors.blue, Colors.red],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  borderRadius: BorderRadius.circular(15),
                 ),
-                child: Icon(
-                  Icons.help_sharp,
-                  color: Color.fromARGB(255, 109, 167, 16),
-                  size: 20,
+                child: Center(
+                  child: Icon(Icons.star, color: Colors.white),
                 ),
-                alignment: Alignment.topLeft,
               ),
             ),
             Container(
-              width: 60,
-              height: 80,
-              color: Colors.blue.shade900,
-              child: const Text(
-                '¡Esto es una pruena de funcionamiento!',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 12.0,
-                  fontFamily: "Arial",
-                  fontWeight: FontWeight.bold,
-                ),
+              padding: EdgeInsets.all(10),
+              margin: EdgeInsets.all(5),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.purple, width: 3),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                child: Text('Hola desde un lugar muy lejano',
+                    style: TextStyle(color: Colors.purple)),
               ),
             ),
             createContainer(30, 80, Colors.green.shade700),
